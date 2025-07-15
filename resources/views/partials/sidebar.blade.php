@@ -16,13 +16,7 @@
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <!-- BEGIN NAVBAR MENU -->
             <ul class="navbar-nav pt-lg-3">
-                <li class="nav-item {{ Route::is('dashboard') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('dashboard') }}">
-                        <span class="nav-link-icon d-md-none d-lg-inline-block"><i
-                                class="ti ti-dashboard fs-2"></i></span>
-                        <span class="nav-link-title"> Dashboard </span>
-                    </a>
-                </li>
+                
                 <li class="nav-item {{ Route::is('home-page.*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('home-page.index') }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
