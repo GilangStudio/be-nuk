@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('service_details', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
+            
+            // Header Section
+            $table->string('header_title');
+            $table->string('header_image_path');
+            $table->string('header_image_alt_text')->nullable();
+            
+            // Content Section  
+            $table->string('content_title');
+            $table->longText('content_description');
+            $table->string('content_image_path');
+            $table->string('content_image_alt_text')->nullable();
+            
             $table->timestamps();
         });
     }

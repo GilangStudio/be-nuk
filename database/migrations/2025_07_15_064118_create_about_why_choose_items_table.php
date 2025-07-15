@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('about_why_choose_items', function (Blueprint $table) {
             $table->id();
+
+            $table->string('icon_path');
+            $table->string('icon_alt_text')->nullable();
+            $table->string('title');
+            $table->text('description');
+            $table->integer('order')->default(1);
+            $table->boolean('is_active')->default(true);
+            
             $table->timestamps();
         });
     }

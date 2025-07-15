@@ -13,6 +13,21 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('location');
+            $table->string('year');
+            
+            // Media (bisa gambar atau video)
+            $table->string('media_path');
+            $table->string('media_alt_text')->nullable();
+            $table->enum('media_type', ['image', 'video'])->default('image');
+            
+            $table->integer('order')->default(1);
+            $table->boolean('is_active')->default(true);
+            
             $table->timestamps();
         });
     }

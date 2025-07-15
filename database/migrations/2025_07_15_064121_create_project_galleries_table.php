@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('project_galleries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
+            $table->string('image_path');
+            $table->string('image_alt_text')->nullable();
+            $table->integer('order')->default(1);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

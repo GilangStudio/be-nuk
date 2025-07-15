@@ -13,6 +13,28 @@ return new class extends Migration
     {
         Schema::create('about_page_settings', function (Blueprint $table) {
             $table->id();
+
+            // Banner Image
+            $table->string('banner_image_path');
+            $table->string('banner_image_alt_text')->nullable();
+            
+            // About Section
+            $table->string('about_image_path');
+            $table->string('about_image_alt_text')->nullable();
+            $table->string('about_title');
+            $table->longText('about_description');
+            
+            // Description Section
+            $table->string('description_title');
+            $table->longText('description_content');
+            $table->string('description_image_path');
+            $table->string('description_image_alt_text')->nullable();
+            
+            // SEO
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
+            
             $table->timestamps();
         });
     }
