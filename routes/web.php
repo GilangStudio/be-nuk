@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\AboutPageController;
+use App\Http\Controllers\AboutWhyChooseController;
+use App\Http\Controllers\AboutWhatDifferentController;
+use App\Http\Controllers\AboutCertificationsController;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -48,6 +52,39 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/banner/{id}/toggle', [HomePageController::class, 'toggleBannerStatus'])->name('banner.toggle');
         Route::delete('/logo/{id}', [HomePageController::class, 'deleteCompanyLogo'])->name('logo.delete');
         Route::post('/logo/{id}/toggle', [HomePageController::class, 'toggleCompanyLogoStatus'])->name('logo.toggle');
+    });
+
+    Route::prefix('about-page')->name('about-page.')->group(function () {
+        // Main About Page
+        Route::get('/', [AboutPageController::class, 'index'])->name('index');
+        Route::post('/update-or-create', [AboutPageController::class, 'updateOrCreate'])->name('updateOrCreate');
+        
+        // Certifications Management
+        Route::prefix('certifications')->name('certifications.')->group(function () {
+            Route::get('/', [AboutCertificationsController::class, 'index'])->name('index');
+            Route::post('/store', [AboutCertificationsController::class, 'store'])->name('store');
+            Route::put('/{certification}', [AboutCertificationsController::class, 'update'])->name('update');
+            Route::delete('/{certification}', [AboutCertificationsController::class, 'destroy'])->name('destroy');
+            Route::post('/update-order', [AboutCertificationsController::class, 'updateOrder'])->name('update-order');
+        });
+        
+        // What Different Items Management
+        Route::prefix('what-different')->name('what-different.')->group(function () {
+            Route::get('/', [AboutWhatDifferentController::class, 'index'])->name('index');
+            Route::post('/store', [AboutWhatDifferentController::class, 'store'])->name('store');
+            Route::put('/{item}', [AboutWhatDifferentController::class, 'update'])->name('update');
+            Route::delete('/{item}', [AboutWhatDifferentController::class, 'destroy'])->name('destroy');
+            Route::post('/update-order', [AboutWhatDifferentController::class, 'updateOrder'])->name('update-order');
+        });
+        
+        // Why Choose Items Management
+        Route::prefix('why-choose')->name('why-choose.')->group(function () {
+            Route::get('/', [AboutWhyChooseController::class, 'index'])->name('index');
+            Route::post('/store', [AboutWhyChooseController::class, 'store'])->name('store');
+            Route::put('/{item}', [AboutWhyChooseController::class, 'update'])->name('update');
+            Route::delete('/{item}', [AboutWhyChooseController::class, 'destroy'])->name('destroy');
+            Route::post('/update-order', [AboutWhyChooseController::class, 'updateOrder'])->name('update-order');
+        });
     });
 
     Route::prefix('articles')->name('articles.')->group(function () {

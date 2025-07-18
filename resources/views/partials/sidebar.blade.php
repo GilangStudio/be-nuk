@@ -26,6 +26,51 @@
                     </a>
                 </li>
 
+                {{-- About Page Management --}}
+                <li class="nav-item dropdown {{ Route::is('about-page.*') ? 'active' : '' }}">
+                    <a class="nav-link dropdown-toggle" href="#navbar-about" data-bs-toggle="dropdown" 
+                       data-bs-auto-close="false" role="button" aria-expanded="{{ Route::is('about-page.*') ? 'true' : 'false' }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="ti ti-info-circle fs-2"></i>
+                        </span>
+                        <span class="nav-link-title">About Page</span>
+                    </a>
+                    <div class="dropdown-menu {{ Route::is('about-page.*') ? 'show' : '' }}" id="navbar-about">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item {{ Route::is('about-page.index') ? 'active' : '' }}" 
+                                   href="{{ route('about-page.index') }}">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <i class="ti ti-settings"></i>
+                                    </span>
+                                    Page Settings
+                                </a>
+                                <a class="dropdown-item {{ Route::is('about-page.certifications.*') ? 'active' : '' }}" 
+                                   href="{{ route('about-page.certifications.index') }}">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <i class="ti ti-certificate"></i>
+                                    </span>
+                                    Certifications
+                                </a>
+                                <a class="dropdown-item {{ Route::is('about-page.what-different.*') ? 'active' : '' }}" 
+                                   href="{{ route('about-page.what-different.index') }}">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <i class="ti ti-star"></i>
+                                    </span>
+                                    What Different
+                                </a>
+                                <a class="dropdown-item {{ Route::is('about-page.why-choose.*') ? 'active' : '' }}" 
+                                   href="{{ route('about-page.why-choose.index') }}">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <i class="ti ti-heart"></i>
+                                    </span>
+                                    Why Choose
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
                 <li class="nav-item {{ Route::is('articles.*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('articles.index') }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
