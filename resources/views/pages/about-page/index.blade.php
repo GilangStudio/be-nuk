@@ -130,7 +130,7 @@
                 <div class="card-body">
                     <div class="row">
                         @if($aboutPage && $aboutPage->banner_image_url)
-                        <div class="col-md-4">
+                        <div class="col-12">
                             <div class="mb-3">
                                 <label class="form-label">Current Banner</label>
                                 <div class="banner-preview">
@@ -390,7 +390,7 @@
                     </h3>
                     <div class="card-actions">
                         <a href="{{ route('about-page.certifications.index') }}" class="btn btn-primary btn-sm">
-                            <i class="ti ti-plus me-1"></i> Manage
+                            Manage
                         </a>
                     </div>
                 </div>
@@ -423,7 +423,7 @@
                     </h3>
                     <div class="card-actions">
                         <a href="{{ route('about-page.what-different.index') }}" class="btn btn-success btn-sm">
-                            <i class="ti ti-plus me-1"></i> Manage
+                            Manage
                         </a>
                     </div>
                 </div>
@@ -456,7 +456,7 @@
                     </h3>
                     <div class="card-actions">
                         <a href="{{ route('about-page.why-choose.index') }}" class="btn btn-info btn-sm">
-                            <i class="ti ti-plus me-1"></i> Manage
+                            Manage
                         </a>
                     </div>
                 </div>

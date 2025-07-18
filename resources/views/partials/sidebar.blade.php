@@ -71,6 +71,36 @@
                     </div>
                 </li>
 
+                <li class="nav-item dropdown {{ Route::is('services.*') ? 'active' : '' }}">
+                    <a class="nav-link dropdown-toggle" href="#navbar-services" data-bs-toggle="dropdown" 
+                       data-bs-auto-close="false" role="button" aria-expanded="{{ Route::is('services.*') ? 'true' : 'false' }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="ti ti-briefcase fs-2"></i>
+                        </span>
+                        <span class="nav-link-title">Services</span>
+                    </a>
+                    <div class="dropdown-menu {{ Route::is('services.*') ? 'show' : '' }}" id="navbar-services">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item {{ Route::is('services.index') ? 'active' : '' }}" 
+                                   href="{{ route('services.index') }}">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <i class="ti ti-settings"></i>
+                                    </span>
+                                    Page Settings
+                                </a>
+                                <a class="dropdown-item {{ Route::is('services.services.*') ? 'active' : '' }}" 
+                                   href="{{ route('services.services.index') }}">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <i class="ti ti-list"></i>
+                                    </span>
+                                    Services
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
                 <li class="nav-item {{ Route::is('articles.*') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('articles.index') }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">

@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\AboutPageController;
+use App\Http\Controllers\ServicesPageController;
 use App\Http\Controllers\AboutWhyChooseController;
 use App\Http\Controllers\AboutWhatDifferentController;
 use App\Http\Controllers\AboutCertificationsController;
@@ -84,6 +86,23 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/{item}', [AboutWhyChooseController::class, 'update'])->name('update');
             Route::delete('/{item}', [AboutWhyChooseController::class, 'destroy'])->name('destroy');
             Route::post('/update-order', [AboutWhyChooseController::class, 'updateOrder'])->name('update-order');
+        });
+    });
+
+    Route::prefix('services')->name('services.')->group(function () {
+        // Services Page Settings
+        Route::get('/', [ServicesPageController::class, 'index'])->name('index');
+        Route::post('/update-or-create', [ServicesPageController::class, 'updateOrCreate'])->name('updateOrCreate');
+        
+        // Services Management
+        Route::prefix('services')->name('services.')->group(function () {
+            Route::get('/', [ServiceController::class, 'index'])->name('index');
+            Route::get('/create', [ServiceController::class, 'create'])->name('create');
+            Route::post('/create', [ServiceController::class, 'store'])->name('store');
+            Route::get('/{service}/edit', [ServiceController::class, 'edit'])->name('edit');
+            Route::put('/{service}', [ServiceController::class, 'update'])->name('update');
+            Route::delete('/{service}', [ServiceController::class, 'destroy'])->name('destroy');
+            Route::post('/update-order', [ServiceController::class, 'updateOrder'])->name('update-order');
         });
     });
 
