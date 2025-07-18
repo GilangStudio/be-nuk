@@ -16,6 +16,11 @@ class ServiceDetail extends Model
     }
 
     // Accessors
+    public function getBannerImageUrlAttribute()
+    {
+        return $this->banner_image_path ? asset('storage/' . $this->banner_image_path) : null;
+    }
+    
     public function getHeaderImageUrlAttribute()
     {
         return $this->header_image_path ? asset('storage/' . $this->header_image_path) : null;

@@ -42,9 +42,9 @@ class Service extends Model
         return $this->icon_path ? asset('storage/' . $this->icon_path) : null;
     }
 
-    public function getBannerImageUrlAttribute()
+    public function getImageUrlAttribute()
     {
-        return $this->banner_image_path ? asset('storage/' . $this->banner_image_path) : null;
+        return $this->image_path ? asset('storage/' . $this->image_path) : null;
     }
 
     // Scopes

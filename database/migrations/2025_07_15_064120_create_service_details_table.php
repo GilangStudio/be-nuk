@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
+
+            //Banner Image
+            $table->string('banner_image_path');
+            $table->string('banner_image_alt_text')->nullable();
             
             // Header Section
             $table->string('header_title');
@@ -26,7 +30,7 @@ return new class extends Migration
             $table->longText('content_description');
             $table->string('content_image_path');
             $table->string('content_image_alt_text')->nullable();
-            
+
             $table->timestamps();
         });
     }
