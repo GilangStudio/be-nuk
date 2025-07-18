@@ -26,6 +26,16 @@
                     </a>
                 </li>
 
+                <li class="nav-item {{ Route::is('articles.*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('articles.index') }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="ti ti-file-text fs-2"></i>
+                        </span>
+                        <span class="nav-link-title">Articles</span>
+                    </a>
+                </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link text-danger" href="{{ route('logout') }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><i class="ti ti-logout fs-2"></i></span>

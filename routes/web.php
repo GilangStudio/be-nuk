@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomePageController;
 
 Route::middleware(['guest'])->group(function () {
@@ -47,6 +48,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/banner/{id}/toggle', [HomePageController::class, 'toggleBannerStatus'])->name('banner.toggle');
         Route::delete('/logo/{id}', [HomePageController::class, 'deleteCompanyLogo'])->name('logo.delete');
         Route::post('/logo/{id}/toggle', [HomePageController::class, 'toggleCompanyLogoStatus'])->name('logo.toggle');
+    });
+
+    Route::prefix('articles')->name('articles.')->group(function () {
+        Route::get('/', [ArticleController::class, 'index'])->name('index');
+        Route::get('/create', [ArticleController::class, 'create'])->name('create');
+        Route::post('/create', [ArticleController::class, 'store'])->name('store');
+        Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('edit');
+        Route::put('/{article}', [ArticleController::class, 'update'])->name('update');
+        Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('destroy');
     });
 
     // Logout
